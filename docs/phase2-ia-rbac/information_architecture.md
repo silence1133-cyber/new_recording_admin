@@ -5,6 +5,14 @@ version: "1.0.0"
 stage: "Phase 2 - Approved"
 last_updated: "2026-09-17"
 ---
+# Phase 2. 정보 구조 (Information Architecture, IA)
+---
+document_id: "SPEC-CORE-P2-001"
+title: "기본 녹취 솔루션 정보 구조도 (IA) 및 사이트맵 명세"
+version: "1.0.0"
+stage: "Phase 2 - Approved"
+last_updated: "2026-09-17"
+---
 
 # Phase 2. 정보 구조 (Information Architecture, IA)
 
@@ -17,7 +25,7 @@ last_updated: "2026-09-17"
 
 ## 2. 최상위 정보 구조도 (Mermaid LR)
 
-```mermaid
+`mermaid
 graph LR
     classDef root fill:#1e293b,stroke:#0f172a,stroke-width:2px,color:#ffffff,font-weight:bold;
     classDef gnb fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold;

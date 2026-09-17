@@ -1,8 +1,16 @@
+﻿---
+document_id: "SPEC-CORE-P2-002"
+title: "역할 기반 접근 제어 (RBAC) 및 보안 정책 매트릭스"
+version: "1.0.0"
+stage: "Phase 2 - Approved"
+last_updated: "2026-09-17"
+---
+# Phase 2. 권한 매트릭스 (RBAC Matrix) & 거버넌스 통제
 ---
 
-### 2. `docs/phase2-ia-rbac/rbac_matrix.md`
+### 2. docs/phase2-ia-rbac/rbac_matrix.md
 
-```markdown
+`markdown
 ---
 document_id: "SPEC-CORE-P2-002"
 title: "역할 기반 접근 제어 (RBAC) 및 보안 정책 매트릭스"
@@ -25,7 +33,7 @@ last_updated: "2026-09-17"
 
 ## 2. 메뉴별 접근 제어 매트릭스 (Menu Access Matrix)
 
-> **범례**: `R` (Read/조회), `W` (Write/수정·등록), `A` (Approve/승인), `-` (접근 불가)
+> **범례**: R (Read/조회), W (Write/수정·등록), A (Approve/승인), - (접근 불가)
 
 | 화면 ID | 메뉴 경로 | 슈퍼 관리자 | 보안 감사관 | 센터장/총괄 | 팀장/QA | 일반 상담사 |
 |---|---|:---:|:---:|:---:|:---:|:---:|
@@ -48,24 +56,24 @@ last_updated: "2026-09-17"
 
 | 대상 그룹 | 포함 역할 | IP 검증 알고리즘 | 보안 예외 처리 |
 |---|---|---|---|
-| **상위 관리자 그룹** | • ROLE_SUPER_ADMIN<br>• ROLE_AUDITOR<br>• ROLE_OPS_ADMIN | **사전 등록된 단일 IP 100% 완전 일치 (Exact Match)**<br>(*CIDR 서브넷 대역 접근 원천 불허*) | 불일치 시 401 Unauthorized 즉시 반환 및 감사 로그에 `UNAUTHORIZED_IP_ATTEMPT` 기록 |
-| **일반 사용자 그룹** | • ROLE_QA_LEAD<br>• ROLE_AGENT | **지정된 인트라넷 서브넷 대역 허용 (CIDR Block)**<br>(예: `10.240.0.0/24`, 센터별 업무망 대역) | 미인가 대역 접속 시 403 Forbidden 차단 |
+| **상위 관리자 그룹** | • ROLE_SUPER_ADMIN<br>• ROLE_AUDITOR<br>• ROLE_OPS_ADMIN | **사전 등록된 단일 IP 100% 완전 일치 (Exact Match)**<br>(*CIDR 서브넷 대역 접근 원천 불허*) | 불일치 시 401 Unauthorized 즉시 반환 및 감사 로그에 UNAUTHORIZED_IP_ATTEMPT 기록 |
+| **일반 사용자 그룹** | • ROLE_QA_LEAD<br>• ROLE_AGENT | **지정된 인트라넷 서브넷 대역 허용 (CIDR Block)**<br>(예: 10.240.0.0/24, 센터별 업무망 대역) | 미인가 대역 접속 시 403 Forbidden 차단 |
 
 ---
 
 ## 4. 컴플라이언스 기능 옵션화 정책 (System Governance Toggles)
 
-시스템 정책 화면(`SYS-04`)에서 각 사이트 환경에 맞춰 ON/OFF 토글할 수 있는 항목:
+시스템 정책 화면(SYS-04)에서 각 사이트 환경에 맞춰 ON/OFF 토글할 수 있는 항목:
 
-1. **`OPT_PLAYBACK_REASON_POPUP` (청취 사유 팝업 강제 여부)**:
-   * **기본값**: `OFF` (업무 편의성을 위해 원클릭 즉시 청취 지원, 감사 로그는 백그라운드 자동 기록)
-   * `ON` 변경 시: 청취 버튼 클릭 시 팝업 모달을 통해 사유 입력을 강제한 후 스트리밍 세션 오픈
-2. **`OPT_DOWNLOAD_APPROVAL_WORKFLOW` (다운로드 결재 승인 단계 사용 여부)**:
-   * **기본값**: `ON` (사유 작성 후 상위 관리자 승인 단계 필수)
-   * `OFF` 변경 시: 다운로드 사유 입력 즉시 암호화 압축 파일 직접 다운로드 허용
-3. **`OPT_WIRETAP_REASON_POPUP` (실시간 감청 사유 입력 강제 여부)**:
-   * **기본값**: `ON` (감청 전 모달 팝업으로 사유 선택 강제)
-   * `OFF` 변경 시: 권한자에 한해 채널 카드에서 즉시 WebRTC/보안 스트림 감청 실행
-4. **`OPT_UNMASK_DIRECT_PERMISSION` (마스킹 즉시 해제 권한 활성화 여부)**:
-   * **기본값**: `OFF` (보안 감사관 사전 결재 워크플로 필수)
-   * `ON` 변경 시: 슈퍼 관리자에 한해 2차 비밀번호/OTP 인증 후 화면 내 즉시 마스킹 해제 지원
+1. **OPT_PLAYBACK_REASON_POPUP (청취 사유 팝업 강제 여부)**:
+   * **기본값**: OFF (업무 편의성을 위해 원클릭 즉시 청취 지원, 감사 로그는 백그라운드 자동 기록)
+   * ON 변경 시: 청취 버튼 클릭 시 팝업 모달을 통해 사유 입력을 강제한 후 스트리밍 세션 오픈
+2. **OPT_DOWNLOAD_APPROVAL_WORKFLOW (다운로드 결재 승인 단계 사용 여부)**:
+   * **기본값**: ON (사유 작성 후 상위 관리자 승인 단계 필수)
+   * OFF 변경 시: 다운로드 사유 입력 즉시 암호화 압축 파일 직접 다운로드 허용
+3. **OPT_WIRETAP_REASON_POPUP (실시간 감청 사유 입력 강제 여부)**:
+   * **기본값**: ON (감청 전 모달 팝업으로 사유 선택 강제)
+   * OFF 변경 시: 권한자에 한해 채널 카드에서 즉시 WebRTC/보안 스트림 감청 실행
+4. **OPT_UNMASK_DIRECT_PERMISSION (마스킹 즉시 해제 권한 활성화 여부)**:
+   * **기본값**: OFF (보안 감사관 사전 결재 워크플로 필수)
+   * ON 변경 시: 슈퍼 관리자에 한해 2차 비밀번호/OTP 인증 후 화면 내 즉시 마스킹 해제 지원
