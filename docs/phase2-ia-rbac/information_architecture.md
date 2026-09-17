@@ -14,8 +14,6 @@ stage: "Phase 2 - Approved"
 last_updated: "2026-09-17"
 ---
 
-# Phase 2. 정보 구조 (Information Architecture, IA)
-
 ## 1. 개요 및 설계 원칙
 * **코어 도메인 집중화**: 외부 통신 엔진(특화 CTI/SIP, AI STT/TA)의 물리적 종속성을 배제하고, 순수 녹취 코어(Pure Recording Core) 운영, 이력 반출, QA 평가, 컴플라이언스 관리에 초점을 맞춘 4대 도메인으로 구성한다.
 * **무제한 계층 반영**: 조직 관리 체계는 고정 뎁스를 배제하고, CRM 마스터 조직을 그대로 승계하는 무제한 계층 구조를 전제로 메뉴를 라우팅한다.

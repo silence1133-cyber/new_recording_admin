@@ -19,8 +19,6 @@ stage: "Phase 2 - Approved"
 last_updated: "2026-09-17"
 ---
 
-# Phase 2. 권한 매트릭스 (RBAC Matrix) & 거버넌스 통제
-
 ## 1. 역할 정의 (Role Definitions)
 
 * **ROLE_SUPER_ADMIN (슈퍼 관리자)**: 시스템 최상위 권한자. 인프라 모니터링, 전체 계정 및 보안 정책 설정 총괄.
